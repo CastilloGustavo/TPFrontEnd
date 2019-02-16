@@ -1,0 +1,27 @@
+$ColorYellow : #FFE600;
+$ColorBlack : #333333;
+$ColorGrey : #999999;
+$ColorLightGrey  : #EEEEEE;
+
+
+
+.BannerHeader{
+    background-color: $ColorYellow;
+    height: 70px;
+    .inputContainer{
+      padding-top : 20px;
+      padding-left: 20px;
+      height: 50px;
+      input{
+        width: 600px;
+        background-color: $ColorLightGrey;
+      }
+      button{
+        background-color: $ColorLightGrey;
+      }
+    }
+    .App-logo {
+      padding-top : 20px;
+      padding-left: 20px;
+    }
+}
