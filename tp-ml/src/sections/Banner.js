@@ -15,8 +15,8 @@ class Banner  extends Component {
         } = this.props;
 
     return(
-    <div className="container-fluid BannerHeader">
-      <div className="row">
+    <div className="container-fluid">
+      <div className="row BannerHeader ">
         <div className="col-sm-1" >
         </div>
         <div>
