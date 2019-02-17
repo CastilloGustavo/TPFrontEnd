@@ -3,6 +3,7 @@ class ResultSeacherItem extends Component {
   constructor(props){
     super(props);
     const {item} = this.props;
+    console.log(this.props);
     this.state ={item:item};
   }
   render(){

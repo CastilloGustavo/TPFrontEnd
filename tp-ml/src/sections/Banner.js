@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import ResultSeacher from './ResultSeacher';
+
 class Banner  extends Component {
 
   handlerClick = (e) =>{
@@ -39,11 +41,11 @@ class Banner  extends Component {
         </div>
       </div>
       <div>
-        {this.props.children}
+        <ResultSeacher logo={logo} />
       </div>
     </div>
     )
   }
 }
-
+//{this.props.children}
 export default Banner;
