@@ -38,6 +38,9 @@ class Banner  extends Component {
         <div className="col-sm-1" >
         </div>
       </div>
+      <div>
+        {this.props.children}
+      </div>
     </div>
     )
   }

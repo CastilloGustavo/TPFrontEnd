@@ -1,50 +1,72 @@
 import React, { Component } from 'react';
 import Beadcrumb from './Beadcrumb';
-class ResultSeacherItem extends Component {
-  constructor(){
-    super();
-    this.state ={
+import ResultSeacherItem from './ResultSeacherItem';
+
+class ResultSeacher  extends Component {
+
+  componentDidMount(){
+/*    debugger;
+    const url = "http://api.mercadolibre.com/sites/MLA/search";
+      fetch(url)
+        .then(res => res.json())
+        .then(data => {
+          console.log(data);
+        });*/
+  }
+  _renderItemsSeacher = () =>{
+    const {
+          logo
+        } = this.props;
+    const items = [{
       id:0,
       title:"Soy la Descripcion del Producto",
-      price:"15266.9",
+      price:"15266.6",
       picture :{},
       condition : {},
       city:"Capital",
-      free_shipping:""
-    }
+      free_shipping:"",
+      logo : logo
+    },{
+      id:2,
+      title:"Soy la Descripcion del Producto 2",
+      price:"15266.6",
+      picture :{},
+      condition : {},
+      city:"Capital",
+      free_shipping:"",
+      logo : logo
+    }]
+    //return (<div><h1>PEPE</h1></div>)
+    //items.map(item =>(
+      //<div><h1>PEPE</h1></div>
+      //return (<div>item</div>)
+      //return (<ResultSeacherItem key={item.id} item={item} logo={item.logo} />)
+    //));
   }
+//{this._renderItemsSeacher()}
   render(){
     const {
           logo
         } = this.props;
+
+        const item = {
+          id:0,
+          title:"Soy la Descripcion del Producto",
+          price:"15266.6",
+          picture :{},
+          condition : {},
+          city:"Capital",
+          free_shipping:"",
+          logo : logo
+        };
     return(
-      <div className="row">
-        <div className="col-sm-2">
-            <img src={logo} className="App-logo" alt="logo" />
-        </div>
-        <div className="col-sm-8">
-            <h1>{this.state.price}</h1>
-            <p>{this.state.title}</p>
-        </div>
-        <div className="col-sm-2">
-          <p>{this.state.city}</p>
-        </div>
-      </div>
-    )
-  }
-}
-class ResultSeacher  extends Component {
-  render(){
-    const {
-          logo
-        } = this.props;
-    return(
-      <div className='row'>
+      <div className='row RowBody'>
         <div className='col-sm-1'>
         </div>
         <div className='col-sm-10'>
           <Beadcrumb />
-          <ResultSeacherItem logo={logo} />
+          <ResultSeacherItem item={item} logo={logo}/>
+          <ResultSeacherItem item={item} logo={logo}/>          
         </div>
         <div className='col-sm-1'>
         </div>

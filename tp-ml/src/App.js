@@ -8,8 +8,9 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Banner logo={logo}/>
-        <ResultSeacher logo={logo} />
+        <Banner logo={logo}>
+          <ResultSeacher logo={logo} />
+        </Banner>
       </div>
     );
   }

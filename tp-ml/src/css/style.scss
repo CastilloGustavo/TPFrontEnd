@@ -3,7 +3,29 @@ $ColorBlack : #333333;
 $ColorGrey : #999999;
 $ColorLightGrey  : #EEEEEE;
 
-
+.RowBody{
+  background-color: $ColorLightGrey;
+}
+.RowItemSeacher{
+  background-color: $ColorGrey;
+}
+.ImageResult{
+  width: 180px;
+  height: 180px;
+  padding: 16px;
+}
+.TitleResult{
+  h1{
+    padding-top: 20px;
+  }
+  p{
+    padding-top: 32px;
+  }
+}
+.CityResult{
+  padding-top: 20px;
+  padding-left: 12px;
+}
 
 .BannerHeader{
     background-color: $ColorYellow;
