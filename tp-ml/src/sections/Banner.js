@@ -41,7 +41,7 @@ class Banner  extends Component {
         </div>
       </div>
       <div>
-        <ResultSeacher logo={logo} />
+        <ResultSeacher logo={logo} param='Televisor' />
       </div>
     </div>
     )

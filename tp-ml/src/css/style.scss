@@ -2,12 +2,14 @@ $ColorYellow : #FFE600;
 $ColorBlack : #333333;
 $ColorGrey : #999999;
 $ColorLightGrey  : #EEEEEE;
+$ColorWhite  : #ffffff;
 
 .RowBody{
   background-color: $ColorLightGrey;
 }
 .RowItemSeacher{
-  background-color: $ColorGrey;
+  background-color: $ColorWhite;
+  border-bottom:  1px solid #EEEEEE;
 }
 .ImageResult{
   width: 180px;
