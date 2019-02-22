@@ -3,13 +3,28 @@ import Beadcrumb from './Beadcrumb';
 import ResultSeacherItem from './ResultSeacherItem';
 
 class ResultSeacher  extends Component {
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
     this.state = {viewDTO :{
       autor :  "",
       items : [],
       categories : []
     }};
+  }
+  componentWillReceiveProps(nextProps) {
+    const {param} = nextProps;
+    this._callApiSearch(param);
+   }
+  _callApiSearch = (param) =>{
+    var url = "https://api.mercadolibre.com/sites/MLA/search?q=";
+    if(param === "")
+      return;
+
+    fetch(url+ "'"+param+ "'")
+        .then(res => res.json())
+        .then(data => {
+          this._wrapperItemsForApi(data);
+        });
   }
   _renderItemsSeacher = () =>{
     var itemStates = this.state.viewDTO.items;
@@ -35,17 +50,11 @@ class ResultSeacher  extends Component {
     viewDTO.items =itemResultWrapperList;
     this.setState({viewDTO:viewDTO});
   }
+
+
   componentDidMount(){
     const {param} = this.props;
-    var url = "https://api.mercadolibre.com/sites/MLA/search?q=";
-    if(param === "")
-      return;
-
-    fetch(url+ "'"+param+ "'")
-        .then(res => res.json())
-        .then(data => {
-          this._wrapperItemsForApi(data);
-        });
+    this._callApiSearch(param);
   }
   render(){
     return(

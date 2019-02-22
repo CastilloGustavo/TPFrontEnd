@@ -4,16 +4,23 @@ import ResultSeacher from './ResultSeacher';
 class Banner  extends Component {
 
   handlerClick = (e) =>{
-      console.log(this.state);
+    this.setState({seacher:this.inputSeacher.value});
   }
-  constructor(){
-      super()
+  _viewItemsSeacher = () =>{
+    if(this.state.seacher !== "")
+    {
+      return   <ResultSeacher param={this.state.seacher} />
+    }
+  }
+  
+  constructor(props){
+      super(props)
       this.state = {seacher : ""};
   }
   render() {
 
     const {
-          logo
+          logo,
         } = this.props;
 
     return(
@@ -29,8 +36,8 @@ class Banner  extends Component {
         <div className="col-sm-8" >
             <div className="inputContainer input-group mb-3">
               <input className="form-control" id='seacher' type="text" name='seacher'
-               value={this.state.seacher}
-               placeholder='Sigue Buscando' onChange = {e=> this.setState({seacher : e.target.value})}
+               ref={inputElement => this.inputSeacher  = inputElement}
+               placeholder='Sigue Buscando'
               />
               <div className="input-group-append">
                 <button className="btn btn-outline-secondary" onClick={this.handlerClick} >Buscar</button>
@@ -41,7 +48,7 @@ class Banner  extends Component {
         </div>
       </div>
       <div>
-        <ResultSeacher logo={logo} param='Televisor' />
+        {this._viewItemsSeacher()}
       </div>
     </div>
     )
