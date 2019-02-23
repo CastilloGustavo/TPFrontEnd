@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import Beadcrumb from './Beadcrumb';
 import ResultSeacherItem from './ResultSeacherItem';
+import ResultSeacherItemDetalle from './ResultSeacherItemDetalle'
 
 class ResultSeacher  extends Component {
   constructor(props){
     super(props)
     this.state = {viewDTO :{
-      autor :  "",
-      items : [],
-      categories : []
-    }};
+                        autor :  "",
+                        items : [],
+                        categories : []
+                      },
+                  idDetails : ""};
   }
   componentWillReceiveProps(nextProps) {
     const {param} = nextProps;
@@ -26,13 +28,20 @@ class ResultSeacher  extends Component {
           this._wrapperItemsForApi(data);
         });
   }
+  _setIdItemDetalle = (id) =>{
+    this.setState({idDetails:id});
+  }
   _renderItemsSeacher = () =>{
-    var itemStates = this.state.viewDTO.items;
-    const listItems = itemStates.map(item =>(
-      <ResultSeacherItem key={item.id} item={item} logo={item.thumbnail} />
-    ));
-
-    return listItems;
+    if(this.state.idDetails === "")
+    {
+      var itemStates = this.state.viewDTO.items;
+      const listItems = itemStates.map(item =>(
+        <ResultSeacherItem onClickViewDetails={this._setIdItemDetalle} key={item.id} item={item} logo={item.thumbnail} />
+      ));
+        return listItems;
+    }else {
+      return <ResultSeacherItemDetalle id={this.state.idDetails} />
+    }
   }
   _wrapperItemsForApi = (data)=>{
     var itemResultWrapperList = [];
@@ -48,7 +57,7 @@ class ResultSeacher  extends Component {
     var viewDTO = {};
     viewDTO.autor = {name :"Gustavo",lastName : "Castillo"};
     viewDTO.items =itemResultWrapperList;
-    this.setState({viewDTO:viewDTO});
+    this.setState({viewDTO:viewDTO,idDetails:""});
   }
 
 

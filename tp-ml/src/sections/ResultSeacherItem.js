@@ -5,6 +5,11 @@ class ResultSeacherItem extends Component {
     const {item} = this.props;
     this.state ={item:item};
   }
+
+    _navegateToDetalle = (e) =>{
+      this.props.onClickViewDetails(this.state.item.id);
+    }
+
   render(){
     const {
           logo
@@ -17,7 +22,7 @@ class ResultSeacherItem extends Component {
         <div className="col-sm-8">
           <div className="TitleResult" >
             <h1>{this.state.item.price}</h1>
-            <p>{this.state.item.title}</p>
+            <p onClick={this._navegateToDetalle} >{this.state.item.title}</p>
           </div>
         </div>
         <div className="col-sm-2">
