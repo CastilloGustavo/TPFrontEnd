@@ -5,7 +5,7 @@ class ResultSeacherItemDetalle extends Component {
     super()
     this.state = {};
   }
-  componentDidMount(){
+  componentDidMount(){    
     const {id} = this.props;
     this._callApiItemById(id);
   }
@@ -35,7 +35,7 @@ class ResultSeacherItemDetalle extends Component {
               <img src={this.state.thumbnail} className="ImageResultDetalle" alt="imagen" />
               <p>{this.state.title}</p>
           </div>
-          <div className="col-lg-4 col-md-6">                        
+          <div className="col-lg-4 col-md-6">
               <Price symbol='$' value={this.state.price} />
               <button className="btn btn-outline-secondary">Comprar</button>
           </div>

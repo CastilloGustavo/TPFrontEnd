@@ -36,7 +36,10 @@ class ResultSeacher  extends Component {
     {
       var itemStates = this.state.viewDTO.items;
       const listItems = itemStates.map(item =>(
-        <ResultSeacherItem onClickViewDetails={this._setIdItemDetalle} key={item.id} item={item} logo={item.thumbnail} />
+        <ResultSeacherItem onClickViewDetails={this._setIdItemDetalle}
+        key={item.id}
+        itemId={item.id}
+        item={item} logo={item.thumbnail} />
       ));
         return listItems;
     }else {
@@ -59,11 +62,9 @@ class ResultSeacher  extends Component {
     viewDTO.items =itemResultWrapperList;
     this.setState({viewDTO:viewDTO,idDetails:""});
   }
-
-
   componentDidMount(){
     const {param} = this.props;
-    this._callApiSearch(param);
+    this._callApiSearch(param);    
   }
   render(){
     return(

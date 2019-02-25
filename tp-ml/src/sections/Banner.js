@@ -1,21 +1,8 @@
 import React, { Component } from 'react';
-import ResultSeacher from './ResultSeacher';
-
 class Banner  extends Component {
 
   handlerClick = (e) =>{
-    this.setState({seacher:this.inputSeacher.value});
-  }
-  _viewItemsSeacher = () =>{
-    if(this.state.seacher !== "")
-    {
-      return   <ResultSeacher param={this.state.seacher} />
-    }
-  }
-
-  constructor(props){
-      super(props)
-      this.state = {seacher : ""};
+    this.props.onClickSeacher(this.inputSeacher.value);
   }
   render() {
 
@@ -50,12 +37,8 @@ class Banner  extends Component {
         <div className="col-sm-1" >
         </div>
       </div>
-      <div>
-        {this._viewItemsSeacher()}
-      </div>
     </div>
     )
   }
 }
-//{this.props.children}
 export default Banner;

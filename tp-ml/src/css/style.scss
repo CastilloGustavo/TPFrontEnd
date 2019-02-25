@@ -13,7 +13,7 @@ $break-small: 800px;
   border-bottom:  1px solid #EEEEEE;
 }
 .RowItemSeacherDetalle{
-  background-color: $ColorWhite;  
+  background-color: $ColorWhite;
 }
 .ImageResult{
   width: 180px;
@@ -71,6 +71,9 @@ $break-small: 800px;
 .RowFooter{
   height: 30px;
   background-color: $ColorLightGrey;
+}
+.link {
+      text-decoration: none;
 }
 
 .form-control:focus {
