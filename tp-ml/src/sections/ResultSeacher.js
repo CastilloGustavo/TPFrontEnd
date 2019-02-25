@@ -67,14 +67,18 @@ class ResultSeacher  extends Component {
   }
   render(){
     return(
-      <div className='row RowBody'>
-        <div className='col-sm-1'>
+      <div>
+        <div className='row RowBody'>
+          <div className='col-sm-1'>
+          </div>
+          <div className='col-sm-10'>
+            <Beadcrumb />
+            {this._renderItemsSeacher()}
+          </div>
+          <div className='col-sm-1'>
+          </div>
         </div>
-        <div className='col-sm-10'>
-          <Beadcrumb />
-          {this._renderItemsSeacher()}
-        </div>
-        <div className='col-sm-1'>
+        <div className='row RowFooter'>
         </div>
       </div>
     )

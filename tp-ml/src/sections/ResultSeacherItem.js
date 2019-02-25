@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Price from './Price'
 class ResultSeacherItem extends Component {
   constructor(props){
     super(props);
@@ -16,16 +17,17 @@ class ResultSeacherItem extends Component {
         } = this.props;
     return(
       <div className="row RowItemSeacher">
-        <div className="col-sm-2">
+        <div className="col-lg-2 col-sm-4">
             <img src={logo} className="ImageResult" alt="logo" />
         </div>
-        <div className="col-sm-8">
+        <div className="col-lg-8 col-sm-5">
           <div className="TitleResult" >
-            <h1>{this.state.item.price}</h1>
-            <p onClick={this._navegateToDetalle} >{this.state.item.title}</p>
+            <Price symbol='$' value={this.state.item.price} />
+            <button type="button" onClick={this._navegateToDetalle}
+              className="btn font-weight-normal">{this.state.item.title}</button>            
           </div>
         </div>
-        <div className="col-sm-2">
+        <div className="col-lg-2 col-sm-3">
           <p className="CityResult">{this.state.item.city}</p>
         </div>
       </div>

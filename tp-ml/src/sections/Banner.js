@@ -12,7 +12,7 @@ class Banner  extends Component {
       return   <ResultSeacher param={this.state.seacher} />
     }
   }
-  
+
   constructor(props){
       super(props)
       this.state = {seacher : ""};
@@ -21,6 +21,7 @@ class Banner  extends Component {
 
     const {
           logo,
+          imgBtn
         } = this.props;
 
     return(
@@ -34,13 +35,15 @@ class Banner  extends Component {
         </div>
         </div>
         <div className="col-sm-8" >
-            <div className="inputContainer input-group mb-3">
+          <div className="input-group">
               <input className="form-control" id='seacher' type="text" name='seacher'
                ref={inputElement => this.inputSeacher  = inputElement}
                placeholder='Sigue Buscando'
               />
               <div className="input-group-append">
-                <button className="btn btn-outline-secondary" onClick={this.handlerClick} >Buscar</button>
+                <button className="btn btn-outline-secondary" onClick={this.handlerClick} >
+                  <img src={imgBtn} width="20" alt="Buscar"/>
+                </button>
               </div>
           </div>
         </div>

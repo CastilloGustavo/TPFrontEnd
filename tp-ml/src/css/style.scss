@@ -3,6 +3,7 @@ $ColorBlack : #333333;
 $ColorGrey : #999999;
 $ColorLightGrey  : #EEEEEE;
 $ColorWhite  : #ffffff;
+$break-small: 800px;
 
 .RowBody{
   background-color: $ColorLightGrey;
@@ -12,18 +13,14 @@ $ColorWhite  : #ffffff;
   border-bottom:  1px solid #EEEEEE;
 }
 .RowItemSeacherDetalle{
-  background-color: $ColorWhite;
+  background-color: $ColorWhite;  
 }
 .ImageResult{
   width: 180px;
   height: 180px;
   padding: 16px;
 }
-.ImageResultDetalle{
-  width: 500px;
-  height: 500px;
-  padding: 5px;
-}
+
 
 .TitleResult{
   h1{
@@ -41,20 +38,49 @@ $ColorWhite  : #ffffff;
 .BannerHeader{
     background-color: $ColorYellow;
     height: 70px;
-    .inputContainer{
+    .input-group{
       padding-top : 20px;
       padding-left: 20px;
-      height: 50px;
       input{
-        width: 600px;
-        background-color: $ColorLightGrey;
+          background-color: $ColorWhite;
       }
       button{
-        background-color: $ColorLightGrey;
+        background-color: $ColorWhite;
+        border: 1px solid #ced4da
       }
     }
     .App-logo {
       padding-top : 20px;
       padding-left: 20px;
     }
+}
+
+.ImageResultDetalle{
+  width: 500px;
+  height: 500px;
+  padding: 5px;
+  @media screen and (max-width: $break-small) {
+    width: 200px;
+    height: 200px;
+  }
+}
+.fill {
+    min-height: 100%;
+    height: 100%;
+}
+.RowFooter{
+  height: 30px;
+  background-color: $ColorLightGrey;
+}
+
+.form-control:focus {
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+}
+
+.btn-outline-secondary:focus{
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
 }
