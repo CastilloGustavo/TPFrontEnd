@@ -1,13 +1,26 @@
 import React, { Component } from 'react';
+import CurrencyFormat from 'react-currency-format';
+
 class Price extends Component {
   render(){
     return(
       <div className="form-inline">
-          <h1>{this.props.symbol}</h1>          
-          <h1>{this.props.value}</h1>
-          <p>{this.props.icon}</p>
+          <h2>
+            <CurrencyFormat
+             value={this.props.value}
+             displayType={'text'}
+             thousandSeparator={true}
+             prefix={this.props.symbol} />
+          </h2>
+            <p>{this.props.icon}</p>
       </div>
     )
   }
 }
+
+Price.defaultProps = {
+  symbol : "$",
+  value : "0.00"
+}
+
 export default Price

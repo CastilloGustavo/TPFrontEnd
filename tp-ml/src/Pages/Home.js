@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Banner from '../sections/Banner';
-import ResultSeacher from './ResultSeacher';
+import ResultSeacher from '../sections/ResultSeacher';
 
 class Home extends Component {
   constructor(){

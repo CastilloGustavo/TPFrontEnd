@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Price from './Price'
+import DescriptionItem from './DescriptionItem'
+
 class ResultSeacherItemDetalle extends Component {
   constructor() {
     super()
@@ -28,14 +30,15 @@ class ResultSeacherItemDetalle extends Component {
     this.setState(itemState);
   }
   render(){
+    const {id} = this.props;
     return(
       <div className="fill" >
         <div className="row RowItemSeacherDetalle">
-          <div className="col-lg-8 col-md-6">
+          <div className="col-lg-8 col-md-8">
               <img src={this.state.thumbnail} className="ImageResultDetalle" alt="imagen" />
-              <p>{this.state.title}</p>
+              <DescriptionItem idItem={id} />
           </div>
-          <div className="col-lg-4 col-md-6">
+          <div className="col-lg-4 col-md-4">
               <Price symbol='$' value={this.state.price} />
               <button className="btn btn-outline-secondary">Comprar</button>
           </div>

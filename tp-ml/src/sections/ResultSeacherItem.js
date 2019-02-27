@@ -19,14 +19,14 @@ class ResultSeacherItem extends Component {
           itemId
         } = this.props;
     return(
-      <Link to={'/detail/' + itemId} style={{ textDecoration: 'none', color: 'inherit' }}
+      <Link to={'/items/' + itemId} style={{ textDecoration: 'none', color: 'inherit' }}
       className="row RowItemSeacher link">
         <div className="col-lg-2 col-sm-4">
             <img src={logo} className="ImageResult" alt="logo" />
         </div>
         <div className="col-lg-8 col-sm-5">
           <div className="TitleResult" >
-            <Price symbol='$' value={this.state.item.price} />
+            <Price value={this.state.item.price} />
             <button type="button" onClick={this._navegateToDetalle}
               className="btn font-weight-normal">{this.state.item.title}</button>
           </div>

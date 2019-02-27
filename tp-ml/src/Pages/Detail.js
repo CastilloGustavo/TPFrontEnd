@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Banner from '../sections/Banner';
-import Beadcrumb from './Beadcrumb';
+import Beadcrumb from '../sections/Beadcrumb';
 import ResultSeacherItemDetalle from '../sections/ResultSeacherItemDetalle';
 import {Redirect} from "react-router-dom";
 
@@ -23,7 +23,6 @@ class Detail extends Component {
     const { redirectToReferrer,textSeacher } = this.state;
     const { from } = this.props.location.state || { from: { pathname: "/"+ textSeacher } };
      if (redirectToReferrer) {
-       debugger;
        return <Redirect to={from} />;
      }
       return(

@@ -61,7 +61,7 @@ $break-small: 800px;
   padding: 5px;
   @media screen and (max-width: $break-small) {
     width: 200px;
-    height: 200px;
+    height: 350px;
   }
 }
 .fill {
@@ -74,6 +74,10 @@ $break-small: 800px;
 }
 .link {
       text-decoration: none;
+}
+.item-description-text{
+  color: #666;
+  font-size: 20px
 }
 
 .form-control:focus {
