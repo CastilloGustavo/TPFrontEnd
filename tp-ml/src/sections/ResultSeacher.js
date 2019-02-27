@@ -48,6 +48,7 @@ class ResultSeacher  extends Component {
   }
   _wrapperItemsForApi = (data)=>{
     var itemResultWrapperList = [];
+    const _autor = {name :"Gustavo",lastName : "Castillo"}
     data.results.forEach(function(item){
       var itemResultWrapper = {};
       itemResultWrapper.id = item.id;
@@ -58,13 +59,13 @@ class ResultSeacher  extends Component {
       itemResultWrapperList.push(itemResultWrapper);
     });
     var viewDTO = {};
-    viewDTO.autor = {name :"Gustavo",lastName : "Castillo"};
+    viewDTO.autor = _autor;
     viewDTO.items =itemResultWrapperList;
     this.setState({viewDTO:viewDTO,idDetails:""});
   }
   componentDidMount(){
     const {param} = this.props;
-    this._callApiSearch(param);    
+    this._callApiSearch(param);
   }
   render(){
     return(

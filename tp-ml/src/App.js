@@ -11,6 +11,7 @@ class App extends Component {
     return (
       <Switch>
         <Route exact path='/' component={Home}/>
+        <Route exact path='/:textSeacher' component={Home}/>        
         <Route exact path='/detail/:id' component={Detail}/>
       </Switch>
     );

@@ -5,7 +5,7 @@ class ResultSeacherItemDetalle extends Component {
     super()
     this.state = {};
   }
-  componentDidMount(){    
+  componentDidMount(){
     const {id} = this.props;
     this._callApiItemById(id);
   }

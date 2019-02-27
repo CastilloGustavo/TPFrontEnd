@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
-class Banner  extends Component {
+import logo from '../css/image/Logo_ML.png';
+import imgSearch from '../css/image/ic_Search.png';
 
+class Banner  extends Component {
   handlerClick = (e) =>{
     this.props.onClickSeacher(this.inputSeacher.value);
   }
   render() {
-
-    const {
-          logo,
-          imgBtn
-        } = this.props;
-
     return(
     <div className="container-fluid">
       <div className="row BannerHeader ">
@@ -29,7 +25,7 @@ class Banner  extends Component {
               />
               <div className="input-group-append">
                 <button className="btn btn-outline-secondary" onClick={this.handlerClick} >
-                  <img src={imgBtn} width="20" alt="Buscar"/>
+                  <img src={imgSearch} width="20" alt="Buscar"/>
                 </button>
               </div>
           </div>

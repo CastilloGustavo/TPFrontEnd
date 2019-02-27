@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import logo from '../css/image/Logo_ML.png';
-import imgSearch from '../css/image/ic_Search.png';
 import Banner from '../sections/Banner';
 import Beadcrumb from './Beadcrumb';
 import ResultSeacherItemDetalle from '../sections/ResultSeacherItemDetalle';
@@ -17,40 +15,39 @@ class Detail extends Component {
       idDetails:id,
       redirectToReferrer : false});
   }
-  _setTextSeacher =()=>{
-    this.setState({redirectToReferrer:true});
+  _setTextSeacher =(text)=>{
+    this.setState({redirectToReferrer:true,textSeacher:text});
   }
 
   _renderDetailsItem = () =>{
-    const { from } = this.props.location.state || { from: { pathname: "/" } };
-    const { redirectToReferrer } = this.state;
-
+    const { redirectToReferrer,textSeacher } = this.state;
+    const { from } = this.props.location.state || { from: { pathname: "/"+ textSeacher } };
      if (redirectToReferrer) {
+       debugger;
        return <Redirect to={from} />;
      }
-
-  return(
-    <div>
-      <div className='row RowBody'>
-        <div className='col-sm-1'>
+      return(
+        <div>
+          <div className='row RowBody'>
+            <div className='col-sm-1'>
+            </div>
+            <div className='col-sm-10'>
+              <Beadcrumb />
+              <ResultSeacherItemDetalle id={this.state.idDetails} />
+            </div>
+            <div className='col-sm-1'>
+            </div>
+          </div>
+          <div className='row RowFooter'>
+          </div>
         </div>
-        <div className='col-sm-10'>
-          <Beadcrumb />
-          <ResultSeacherItemDetalle id={this.state.idDetails} />
-        </div>
-        <div className='col-sm-1'>
-        </div>
-      </div>
-      <div className='row RowFooter'>
-      </div>
-    </div>
-    )
+        )
   }
 
   render(){
     return(
       <div>
-        <Banner logo={logo} imgBtn={imgSearch} onClickSeacher={this._setTextSeacher}/>
+        <Banner onClickSeacher={this._setTextSeacher}/>
         <div>
           {this.state.idDetails !== ""
            ? this._renderDetailsItem()
