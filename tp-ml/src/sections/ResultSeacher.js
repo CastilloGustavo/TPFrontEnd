@@ -9,7 +9,7 @@ class ResultSeacher  extends Component {
     this.state = {viewDTO :{
                         autor :  "",
                         items : [],
-                        categories : []
+                        filters : {}
                       },
                   idDetails : ""};
   }
@@ -37,13 +37,14 @@ class ResultSeacher  extends Component {
       var itemStates = this.state.viewDTO.items;
       const listItems = itemStates.map(item =>(
         <ResultSeacherItem onClickViewDetails={this._setIdItemDetalle}
-        key={item.id}
-        itemId={item.id}
-        item={item} logo={item.thumbnail} />
+          key={item.id}
+          itemId={item.id}
+          textSeacher = {this.props.param}
+          item={item} logo={item.thumbnail} />
       ));
         return listItems;
     }else {
-      return <ResultSeacherItemDetalle id={this.state.idDetails} />
+      return <ResultSeacherItemDetalle id={this.state.idDetails}  />
     }
   }
   _wrapperItemsForApi = (data)=>{
@@ -60,9 +61,17 @@ class ResultSeacher  extends Component {
     });
     var viewDTO = {};
     viewDTO.autor = _autor;
-    viewDTO.items =itemResultWrapperList;
+    viewDTO.items = itemResultWrapperList;
+    viewDTO.filters =  data.filters;
     this.setState({viewDTO:viewDTO,idDetails:""});
   }
+
+  _renderBeadcrumd = ()=>{
+    const {filters = [] }= this.state.viewDTO;
+    if(filters.length > 0)
+      return <Beadcrumb categories={filters} />
+  }
+
   componentDidMount(){
     const {param} = this.props;
     this._callApiSearch(param);
@@ -74,7 +83,7 @@ class ResultSeacher  extends Component {
           <div className='col-sm-1'>
           </div>
           <div className='col-sm-10'>
-            <Beadcrumb />
+            {this._renderBeadcrumd()}
             {this._renderItemsSeacher()}
           </div>
           <div className='col-sm-1'>

@@ -23,16 +23,22 @@ class ResultSeacherItemDetalle extends Component {
         });
   }
   _wrapperItemsForApi = (data)=>{
+    const {error} = data;
     var itemState = {};
     itemState.thumbnail = data.thumbnail;
     itemState.price =  data.price;
     itemState.title = data.title
+    itemState.error = false;
+    if(error !== undefined)
+      itemState.error = true;
     this.setState(itemState);
   }
-  render(){
+  _thisRenderDetailsItem = () =>{
     const {id} = this.props;
-    return(
-      <div className="fill" >
+    if(this.state.error)
+      return <p>Producto no Encontrado</p>
+    else{
+     return(
         <div className="row RowItemSeacherDetalle">
           <div className="col-lg-8 col-md-8">
               <img src={this.state.thumbnail} className="ImageResultDetalle" alt="imagen" />
@@ -43,7 +49,14 @@ class ResultSeacherItemDetalle extends Component {
               <button className="btn btn-outline-secondary">Comprar</button>
           </div>
         </div>
-      </div>
+      )}
+  }
+
+  render(){
+    return(
+        <div className="fill" >
+          {this._thisRenderDetailsItem()}
+        </div>
     )
   }
 }

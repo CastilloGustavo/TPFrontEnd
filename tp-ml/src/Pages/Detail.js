@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Banner from '../sections/Banner';
 import Beadcrumb from '../sections/Beadcrumb';
 import ResultSeacherItemDetalle from '../sections/ResultSeacherItemDetalle';
+import QueryString from 'query-string';
 import {Redirect} from "react-router-dom";
 
 class Detail extends Component {
@@ -11,9 +12,24 @@ class Detail extends Component {
   }
   componentDidMount(){
     const {id = ""} = this.props.match.params;
-    this.setState({
-      idDetails:id,
-      redirectToReferrer : false});
+    const parameters = QueryString.parse(this.props.location.search);
+    if(parameters !== undefined)
+    {
+      var url = "https://api.mercadolibre.com/sites/MLA/search?q=";
+      fetch(url+ "'"+parameters.c+ "'")
+          .then(res => res.json())
+          .then(data => {
+            this.setState({
+              idDetails:id,
+              filters : data.filters,
+              redirectToReferrer : false});
+          });
+
+    }else{
+      this.setState({
+        idDetails:id,
+        redirectToReferrer : false});
+    }
   }
   _setTextSeacher =(text)=>{
     this.setState({redirectToReferrer:true,textSeacher:text});
@@ -31,7 +47,7 @@ class Detail extends Component {
             <div className='col-sm-1'>
             </div>
             <div className='col-sm-10'>
-              <Beadcrumb />
+              <Beadcrumb categories={this.state.filters} />
               <ResultSeacherItemDetalle id={this.state.idDetails} />
             </div>
             <div className='col-sm-1'>
@@ -50,7 +66,7 @@ class Detail extends Component {
         <div>
           {this.state.idDetails !== ""
            ? this._renderDetailsItem()
-           : <h1>Identificador no reconocido</h1>
+           : <h1>El producto Solicitado no existe</h1>
           }
         </div>
       </div>

@@ -16,24 +16,27 @@ class ResultSeacherItem extends Component {
   render(){
     const {
           logo,
-          itemId
+          itemId,
+          textSeacher
         } = this.props;
     return(
-      <Link to={'/items/' + itemId} style={{ textDecoration: 'none', color: 'inherit' }}
-      className="row RowItemSeacher link">
-        <div className="col-lg-2 col-sm-4">
-            <img src={logo} className="ImageResult" alt="logo" />
-        </div>
-        <div className="col-lg-8 col-sm-5">
-          <div className="TitleResult" >
-            <Price value={this.state.item.price} />
-            <button type="button" onClick={this._navegateToDetalle}
-              className="btn font-weight-normal">{this.state.item.title}</button>
+      <Link to={{
+         pathname :'/items/' + itemId,
+         search :"c="+textSeacher
+        }} style={{ textDecoration: 'none', color: 'inherit' }} className="row RowItemSeacher link">
+          <div className="col-lg-2 col-sm-4">
+              <img src={logo} className="ImageResult" alt="logo" />
           </div>
-        </div>
-        <div className="col-lg-2 col-sm-3">
-          <p className="CityResult">{this.state.item.city}</p>
-        </div>
+          <div className="col-lg-8 col-sm-5">
+            <div className="TitleResult" >
+              <Price value={this.state.item.price} />
+              <button type="button" onClick={this._navegateToDetalle}
+                className="btn font-weight-normal">{this.state.item.title}</button>
+            </div>
+          </div>
+          <div className="col-lg-2 col-sm-3">
+            <p className="CityResult">{this.state.item.city}</p>
+          </div>
       </Link>
     )
   }

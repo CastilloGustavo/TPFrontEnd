@@ -22,7 +22,7 @@ class DescriptionItem extends Component {
   }
   render(){
     return(
-      <div className="item-description-text">
+      <div className="item-description-text">      
         <p>{this.state.resultApi.plain_text}</p>
       </div>
     )
