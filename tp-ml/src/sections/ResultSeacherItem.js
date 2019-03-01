@@ -21,7 +21,7 @@ class ResultSeacherItem extends Component {
         } = this.props;
     return(
       <Link to={{
-         pathname :'/items/' + itemId,
+         pathname :'/item/' + itemId,
          search :"c="+textSeacher
         }} style={{ textDecoration: 'none', color: 'inherit' }} className="row RowItemSeacher link">
           <div className="col-lg-2 col-sm-4">

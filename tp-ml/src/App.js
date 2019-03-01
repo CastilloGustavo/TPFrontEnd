@@ -11,8 +11,8 @@ class App extends Component {
     return (
       <Switch>
         <Route exact path='/' component={Home}/>
-        <Route exact path='/:textSeacher' component={Home}/>
-        <Route exact path='/items/:id' component={Detail}/>
+        <Route exact path='/items/:search' component={Home}/>        
+        <Route exact path='/item/:id' component={Detail}/>
       </Switch>
     );
   }

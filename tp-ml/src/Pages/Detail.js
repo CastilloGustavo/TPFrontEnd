@@ -37,7 +37,10 @@ class Detail extends Component {
 
   _renderDetailsItem = () =>{
     const { redirectToReferrer,textSeacher } = this.state;
-    const { from } = this.props.location.state || { from: { pathname: "/"+ textSeacher } };
+    var { from } = textSeacher !== "" ?
+        { from: { pathname: "/items/"+textSeacher} }
+        : { from: { pathname: "/"} }
+
      if (redirectToReferrer) {
        return <Redirect to={from} />;
      }

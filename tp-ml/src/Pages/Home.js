@@ -10,15 +10,18 @@ class Home extends Component {
     }
   }
   componentDidMount(){
-    const {textSeacher = ""} = this.props.match.params;
-    this.setState({seacher:textSeacher});
+
   }
   _viewItemsSeacher = () =>{
+    const {search = ""} = this.props.match.params;
     const {seacher} = this.state;
+
     if(seacher !== "")
-    {
       return   <ResultSeacher param={seacher} />
-    }
+
+    if(search !== "")
+      return   <ResultSeacher param={search} />
+
   }
   _setTextSeacher = (text) =>{
     this.setState({seacher:text});
